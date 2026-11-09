@@ -16,10 +16,13 @@ Step 1 make a general proteomedatabase to retrieve homologs from, in our case th
         Eukarya an inhouse database used before is used. (Eukarya_DB.tsv)
     I also like to create a tsv file where every protein ID has its own taxonomy and sequence. 
 
-
+    All the databases were split into subsets to allow for parallel processing. 
 
 
 Step 2 Download all the HMMs you want to include, also include the HMM from all three databases for downstream processing
+    We split the HMMsearches up in two parts to allow for quicker processing (in the future split this up in 3 or 4). 
+    A Kdp, OpuAC, MtrA, EtcC, TreT, NqrA, and BetB (BetB and MtrA are not discussed in this paper for a variety of reasons)
+    B Rps2, MIP, RpL4, ClcA, MscS, Na/Alanine symporter, CorA, Na/Ca exchanger, MscL, MgtE, MnhE, BCCT, OtsB, TrkH, Kup and HPPase
 
 
 
