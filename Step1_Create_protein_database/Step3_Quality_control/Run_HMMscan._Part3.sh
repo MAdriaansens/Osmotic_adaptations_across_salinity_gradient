@@ -16,13 +16,13 @@ HMMalign=/home/mad149/chapter_meta_analysis/HMMalign/Bacteria
 HMMscan=/home/mad149/chapter_meta_analysis/HMMscan/Bacteria
 
 
-#for file in ${HMMalign}/PF*subset${array[$SLURM_ARRAY_TASK_ID]}*.fasta; do
-#    base=$(basename "$file" .fasta)
-#    echo "$file"
-#    hmmscan -E 0.001 --cpu 10 \
-#        --tblout ${HMMscan}/${base}_HMMscanned.tsv \
-#        ${HMMDB}/Pfam-A.hmm "$file"
-#done
+for file in ${HMMalign}/PF*subset${array[$SLURM_ARRAY_TASK_ID]}*.fasta; do
+    base=$(basename "$file" .fasta)
+    echo "$file"
+    hmmscan -E 0.001 --cpu 10 \
+        --tblout ${HMMscan}/${base}_HMMscanned.tsv \
+        ${HMMDB}/Pfam-A.hmm "$file"
+done
 
 for file in ${HMMalign}/TIGR*subset${array[$SLURM_ARRAY_TASK_ID]}*.fasta; do
     base=$(basename "$file" .fasta)
