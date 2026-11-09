@@ -16,7 +16,7 @@ declare -a array=($(seq 0 127))
 #The new HMMdatabase contains the complete Pfam database plus the TIGR and PANTHER HMMs we used in this study
 
 
-HMMDB=/nesi/nobackup/uc04105/cross_biome_metagenome/Protein/HMM/Pfam_hmm_database/Pfam-A_plus2.hmm 
+HMMDB=/nesi/nobackup/uc04105/cross_biome_metagenome/Protein/HMM/Pfam_hmm_database/Pfam-A.hmm
 HMMalign=/nesi/nobackup/uc04105/cross_biome_metagenome/Protein/results/HMMalign/Bacteria
 HMMscan=/nesi/nobackup/uc04105/cross_biome_metagenome/Protein/results/HMMscan/Bacteria
 
@@ -24,7 +24,7 @@ HMMscan=/nesi/nobackup/uc04105/cross_biome_metagenome/Protein/results/HMMscan/Ba
 find ${HMMalign} -size 0 -print -delete
 
 #this is done to remove any empty files, becuase you can not run a hmmscan on an empty file
-
+#for sequences which were retrieved using other HMMs we ran them seperately on their respective TIGR anf PANTHER databases
 for file in ${HMMalign}/*subset${array[$SLURM_ARRAY_TASK_ID]}_*.fasta; do
     base=$(basename "$file" .fasta)
     echo "$file"
@@ -32,3 +32,4 @@ for file in ${HMMalign}/*subset${array[$SLURM_ARRAY_TASK_ID]}_*.fasta; do
         --tblout ${HMMscan}/${base}_HMMscanned.tsv \
         ${HMMDB} "$file"
 done
+
