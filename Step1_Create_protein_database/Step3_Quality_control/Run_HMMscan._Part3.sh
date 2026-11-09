@@ -12,6 +12,10 @@ module load HMMER/3.3.2-GCC-12.3.0
 
 declare -a array=($(seq 0 127))
 
+#HMMDB=/nesi/nobackup/uc04105/cross_biome_metagenome/Protein/HMM/Pfam_hmm_database/Pfam-A_plus2.hmm 
+#The new HMMdatabase contains the complete Pfam database plus the TIGR and PANTHER HMMs we used in this study
+
+
 HMMDB=/nesi/nobackup/uc04105/cross_biome_metagenome/Protein/HMM/Pfam_hmm_database/Pfam-A_plus2.hmm 
 HMMalign=/nesi/nobackup/uc04105/cross_biome_metagenome/Protein/results/HMMalign/Bacteria
 HMMscan=/nesi/nobackup/uc04105/cross_biome_metagenome/Protein/results/HMMscan/Bacteria
